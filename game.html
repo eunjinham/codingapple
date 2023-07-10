@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="quiz">
+        <h4>물에 빠지면 누구 먼저 구할 것임?</h4>
+        <button>와이프</button>
+        <button>부모님</button>
+        <button>키우던 개</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script>
+        /*let 변수 = 2 + 3;
+        switch(변수) {
+            case 3: alert('변수가 3이네요'); break
+            case 4: alert('변수가 4이네요'); break
+            default: alert('해당사항 없음'); break
+        }*/
+
+        $('#quiz').click(function(e){
+            var help = e.target.innerHTML;
+
+            switch(help) {
+                case '와이프' : alert('와이프를 좋아하시네요'); break
+                case '부모님' : alert('효자네요'); break
+                case '키우던 개' : alert('개를 좋아하시네요'); break
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
