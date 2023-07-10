@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script>
+        //숙제 1번
+        var 출석부 = ['홍민', '영희', '철수', '재석', '철수'];
+
+        function 이름찾기(학생) {
+            var 출석 = console.log('있어요');
+            for(let i=0; i<출석부.length; i++) {
+                if(출석부[i] == 학생) return 출석;
+            }
+        }
+
+        이름찾기('철수');
+
+        //숙제 2번
+        /*for(let i=2; i<10; i++) {
+            for(let j=1; j<10; j++) {
+                console.log(i*j);
+            }
+        }*/
+
+        //숙제 3번
+        function 평균점수계산기(a, b) {
+            var 평균 = 0;
+            a.forEach(element => {
+                평균 += element;
+            });
+  
+            평균 = 평균/a.length;        
+            
+            if(b > 평균) {
+                console.log(`평균보다 ${b-평균}점이 올랐네요`);
+            } else {
+                console.log(`평균보다 ${평균-b}점이 떨어졌네요 재수추천`);
+            }
+        }
+
+        평균점수계산기([10, 20, 30, 40, 50], 40);
+        평균점수계산기([40, 40, 40], 20);
+    </script>
+
+</body>    
+</html>

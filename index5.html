@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+  <body>
+    <div class="black-bg">
+      <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <form action="success.html">
+            <div class="my-3">
+                <p>아이디</p>  
+                <input type="text" class="form-control" id="idconext">
+            </div>
+            <div class="my-3">
+                <p>비밀번호</p>  
+                <input type="password" class="form-control" id="pswd">
+                <p style="color: red;" id="pswdCheck"></p>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit">전송</button>
+            <button type="button" class="btn btn-danger" id="close">닫기</button>
+          </form> 
+      </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav> 
+
+    <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+    <script>    
+
+        document.querySelector('.navbar-toggler').addEventListener('click',function() {
+            document.querySelectorAll('.list-group')[0].classList.toggle('show');
+         })
+        
+        $('#login').on('click',function(){
+            $('.black-bg').addClass('show-modal');
+        })
+
+        $('#close').on('click',function(){
+            $('.black-bg').removeClass('show-modal');
+        })
+
+        $('#submit').on('click', function() {
+            if($('#idconext').empty || $('#pswd').empty) {
+                alert('아이디나 비번을 입력해주세요');                
+            }
+        })
+
+        $('#pswd').on('input', function() {          
+            var pswd = $('#pswd').val(); 
+            if(pswd.length < 6) {
+                $('#pswdCheck').html('비밀번호를 더 길게 입력해주세요');             
+            } else {        
+                $('#pswdCheck').css('color','green');      
+                $('#pswdCheck').html('안전합니다');
+            }
+        })
+         
+    </script> 
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+    <script>
+        
+        function 함수() {
+            return 123
+        }
+
+        var 변수 = 함수();
+        console.log(변수);
+
+        function vat(a) {
+            var num =  (a * 1.1).toFixed(2);
+            return num
+        }
+
+        console.log(vat(55555));
+
+        //숙제 1번
+        function time(m,s) {
+            var ms = 1000 * (m * 60 + s);
+            return ms
+        }
+
+        console.log('숙제 1번 : ' + time(2, 10));
+
+        //숙제 2번
+        function dc(price, first) {
+            var dc = price * 0.9;
+            if(first) dc = dc - 1.5;
+
+            return dc.toFixed(1)
+        }
+
+        console.log('숙제 2번 : ' + dc(10.3, true));
+
+
+    </script>
+
+</body>    
+</html>

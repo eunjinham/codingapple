@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <p>369 게임</p>
+        <input type="text" id="369">
+        <button type="button" id="game">제시</button>
+    </div>    
+
+    <div>
+        <p>합격했냐</p>
+        <input type="text" id="rofhs">  <input type="text" id="alsqjq">
+        <button type="button" id="result">제시</button>
+    </div>  
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+    <script>
+        $('#game').on('click', function() {
+            var a = $('#369').val();
+            var lasta = a.charAt(a.length -1);
+            if(lasta % 3 == 0) {                
+                if(lasta /3 > 1) {
+                    console.log('박수 X ' + lasta/3);
+                } else {
+                    console.log('박수');    
+                }                
+            } else {
+                console.log('통과');
+            }
+        })
+
+        $('#result').on('click', function() {
+            var rofhs = parseInt($('#rofhs').val());
+            var alsqjq = parseInt($('#alsqjq').val());
+            if(rofhs + alsqjq > 120) {                
+                console.log('합격');              
+            } else {
+                console.log('불합격');
+            }
+        })
+    </script>
+
+</body>    
+</html>

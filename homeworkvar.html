@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+    <script>
+        //1번 문제
+        let age = '30';
+        const place = '수원';
+
+        //3번 문제
+        var 예금액 = 60000;
+        var 미래예금액 = 0;
+
+        if(예금액 >= 50000) {
+            미래예금액 = 예금액*1.2*1.2;
+
+        } else {
+            미래예금액 = 예금액**1.15;
+        }
+
+        console.log('미래예금액 : ' + Math.ceil(미래예금액));
+
+        //4번 문제
+        var first = 360;
+
+        var coffee = first + first * 2/3 + first * 2/3 * 2/3;
+
+        console.log('coffee : ' + coffee);
+        
+        //5번 문제
+        var count = 0;
+
+        $('#send-answer').on('click', function() {
+            
+            count++;
+            
+            if($('#answer').val() == '1335') {
+                alert('성공');
+            } else {
+                if(count < 3) {
+                    alert('틀렸습니다');
+                } else {
+                    alert('멍청이');
+                }
+                
+            }
+        });
+        
+    </script>
+  </body>
+</html>

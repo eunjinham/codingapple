@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+  <body class="dark">
+    <div class="black-bg">
+      <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <form action="success.html">
+            <div class="my-3">
+                <p>아이디</p>  
+                <input type="text" class="form-control" id="idcontext">
+                <p style="color: red;" id="idCheck"></p>
+            </div>
+            <div class="my-3">
+                <p>비밀번호</p>  
+                <input type="password" class="form-control" id="pswd">
+                <p style="color: red;" id="pswdCheck"></p>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit">전송</button>
+            <button type="button" class="btn btn-danger" id="close">닫기</button>
+          </form> 
+      </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">JSSHOP</span>
+          <span class="badge bg-dark">Dark 🔄</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav> 
+
+    <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <div class="main-bg">
+        <h4 id="title">Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+      </div> 
+
+    <div style="height: 1000px;"></div>
+
+    <div style="overflow: hidden;">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="car1.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="car2.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="car3.png" alt="">
+            </div>
+        </div>
+    </div>    
+    
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="before">이전</button>
+    <button class="next">다음</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+    <script>    
+
+        document.querySelector('.navbar-toggler').addEventListener('click',function() {
+            document.querySelectorAll('.list-group')[0].classList.toggle('show');
+         });
+        
+        $('#login').on('click',function(){
+            $('.black-bg').addClass('show-modal');
+        });
+
+        $('#close').on('click',function(){
+            $('.black-bg').removeClass('show-modal');
+        });
+
+        $('#submit').on('click', function() {
+            if($('#idcontext').empty || $('#pswd').empty) {
+                alert('아이디나 비번을 입력해주세요');                
+            }
+        });
+
+        $('#idcontext').on('input', function() {
+            var idcontext = $('#idcontext').val();
+            if(!/\S+@\S+\.\S+/.test(idcontext)) {
+                $('#idCheck').css('color','red');      
+                $('#idCheck').html('이메일 형식에 맞추어 작성해주세요');   
+            } else {
+                $('#idCheck').css('color','green');      
+                $('#idCheck').html('이메일 형식이 맞습니다');
+            }
+        }); 
+
+        $('#pswd').on('input', function() {          
+            var pswd = $('#pswd').val(); 
+            if(pswd.length < 6) {
+                $('#pswdCheck').css('color','red');      
+                $('#pswdCheck').html('비밀번호를 더 길게 입력해주세요');             
+            } else if(!/[A-Z]/.test(pswd)) {
+                $('#idCheck').css('color','red');      
+                $('#pswdCheck').html('영어 대문자를 포함해주세요');  
+            } else {        
+                $('#pswdCheck').css('color','green');      
+                $('#pswdCheck').html('안전합니다');
+            }
+        });
+
+        var count = 0;
+
+        $('.badge').on('click', function() {
+            count += 1;
+            if(count % 2 == 0) {
+                $('body').addClass('dark');
+                $('.badge').html('Dark 🔄');
+                $('.badge').removeClass('text-bg-primary');
+                $('.badge').addClass('bg-dark');
+                
+            } else {
+                $('body').removeClass('dark');
+                $('.badge').html('Light 🔄');
+                $('.badge').removeClass('bg-dark');
+                $('.badge').addClass('text-bg-primary');
+            }            
+        });
+
+        var vw = 0;
+
+        $('.slide-1').on('click', function() {
+            vw = 0; 
+
+            $('.slide-container').css('transform', 'translateX('+ vw +'vw)');
+            $('.slide-container').css('transition', 'all 1s');
+        });
+        
+        $('.slide-2').on('click', function() {
+            vw = -100; 
+
+            $('.slide-container').css('transform', 'translateX('+ vw +'vw)');
+            $('.slide-container').css('transition', 'all 1s');
+        });
+
+        $('.slide-3').on('click', function() {
+            vw = -200;
+
+            $('.slide-container').css('transform', 'translateX('+ vw +'vw)');
+            $('.slide-container').css('transition', 'all 1s');
+        });
+        
+        $('.before').on('click', function() {
+            vw += 100;
+            if(vw > 0) {
+                vw = 0;
+            }
+
+            $('.slide-container').css('transform', 'translateX('+ vw +'vw)');
+            $('.slide-container').css('transition', 'all 1s');
+        });
+
+        $('.next').on('click', function() {
+            vw -= 100;
+            if(vw < -200) {
+                vw = -200;
+            }
+
+            $('.slide-container').css('transform', 'translateX('+ vw +'vw)');
+            $('.slide-container').css('transition', 'all 1s');
+        });
+
+        // window.addEventListener('scroll', function(){
+        //     window.scrollby(0,100);
+        // }); java script 버전
+
+        // $(window).on('scroll', function(){
+        //     $(window).scrollTop(100);            
+        // });
+
+        //스크롤 숙제 1번
+        $(window).on('scroll', function(){
+           var scroll = $(window).scrollTop();
+            if(scroll > 100) {
+                $('.navbar-brand').css('font-size','20px');
+            } else {
+                $('.navbar-brand').css('font-size','2px');
+            }    
+        });
+
+        //스크롤 숙제 2번
+        //div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제 높이
+        $('.lorem').on('scroll', function(){
+           var 스크롤양 =  document.querySelector('.lorem').scrollTop;
+           var 실제높이 =  document.querySelector('.lorem').scrollHeight;
+           var 높이 = document.querySelector('.lorem').clientHeight;
+
+           if(Math.round(스크롤양 + 높이) == 실제높이) alert('다 읽음');
+        });
+    </script> 
+  </body>
+</html>
