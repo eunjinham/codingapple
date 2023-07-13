@@ -51,14 +51,14 @@
             </div>
             <div class="modal-body">
               <form action="">
-                <h4 id="name">성함</h4>
-                <input type="text">
-                <h4 id="phone">연락처</h4>
-                <input type="text">
+                <h4>성함</h4>
+                <input type="text" id="name">
+                <h4>연락처</h4>
+                <input type="text" id="phone">
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#receiptModal">입력 완료</button>
+              <button type="button" class="btn btn-dark" id="done" data-bs-toggle="modal" data-bs-target="#receiptModal">입력 완료</button>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>             
             </div>
           </div>
@@ -73,7 +73,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <canvas id="canvas" width="350" height="350"></canvas> 
+              <canvas id="canvas" width="350" height="700"></canvas> 
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>             

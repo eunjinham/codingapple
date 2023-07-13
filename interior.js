@@ -13,9 +13,11 @@ function tempAdd(tempData) {
     });
 }
 
+let total = 0;
+
 //장바구니 html 세팅
 function begAdd(tempData) {
-    var total = 0;
+    total = 0;
     tempData.forEach((a,i) => {
         var temp = 
         `<div class="begitem" data-id="${a.id}">
@@ -96,14 +98,17 @@ $.get('store.json').done(data => {
         begAdd(begproducts); //장바구니 추가   
     });
 
-    var canvas = document.getElementById('canvas'); 
-    var c = canvas.getContext('2d');
-    c.font = '15px dotum';
-    var date = new Date();
+    // var canvas = document.getElementById('canvas'); 
+    // var c = canvas.getContext('2d');
+    // c.font = '15px dotum';
+    // var date = new Date();  
+    // var ycnt = 20;
 
-    var ycnt = 20;
-
-    c.fillText(`주문일 : ${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`, 10, ycnt);
+    // c.fillText(`주문일 : ${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`, 10, ycnt);
+    
+    // begproducts.forEach((a,i) => {
+    //     console.log(a.title);
+    // });
 });
 
 //검색 이벤트
@@ -140,5 +145,29 @@ $('#name').on('input', function(){
 
 $('#phone').on('input', function(){
     phonenumber = $('#phone').val();
+});
+
+$('#done').click(function(){
+    var canvas = document.getElementById('canvas'); 
+    var c = canvas.getContext('2d');
+    c.font = '15px dotum';
+    var date = new Date();  
+    var ycnt = 20;
+
+    c.fillText(`주문일 : ${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`, 10, 20);
+    
+    begproducts.forEach((a,i) => {
+        ycnt = (ycnt+40);
+        c.fillText(a.title, 10, ycnt);
+        c.fillText(a.brand, 10, ycnt+=20);
+        c.fillText(`가격 : ${a.price}`, 10, ycnt+=20);
+        c.fillText(`수량 : ${a.cnt}`, 10, ycnt+=20);
+        c.fillText(`합계 : ${a.price*a.cnt}`, 10, ycnt+=20);
+    });
+
+    c.fillText(`주문자 : ${nameval}`, 10, ycnt+=40);
+    c.fillText(`휴대폰번호 : ${phonenumber}`, 10, ycnt+=20);
+
+    c.fillText(`총 합계 : ${total}`, 10, ycnt+=40);
 });
 
