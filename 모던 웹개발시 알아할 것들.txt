@@ -1,0 +1,51 @@
+* html css js 
+html : 글 넣고 싶을때
+css : 디자인 하고 싶을때
+js : 기능 넣고 싶을때
+
+* 라이브러리
+코딩 편하게 하려고 남들이 만든 코드
+- npm : js 라이브러리 관리 쉬워짐
+설치 : 터미널에서 npm install 라이브러리명
+삭제 : 터미널에서 npm uninstall 라이브러리명
+- webpack : js 라이브러리 용량줄어줌
+- node.js : 자바스크립트 실행도우미
+설치 후 터미널에서 node js파일명(ex-index.js) --실행할일 거의 없음
+js 파일을 import 할 수 있음
+
+* bundling tool
+js 파일들을 하나로 합쳐줌 -> 배포가 쉬워진다
+안쓰는 함수 변수는 다 제거(용량축소 가능)
+.ts .vue .jsx 등의 옛버전 개발한거를 .js로 변환해줌
+최신 문법을 호환성 좋게 바꿔줌 
+ex - turbopack, vite, rollup.js, webpack, parcel 
+
+* SPA
+자바스크립트로 html 조작 편리해짐
+single page application 만들때 씀 -> 새로고침 없이 부드럽게 움직이는 화면
+단점 : 수많은 변수 관리 어려움
+       구글 검색결과 노출 어려움
+       첫페이지 로딩시간 끔찍
+ex - vue, svelte, react, angular
+
+* state management
+SPA 에서 사용 중인 변수들 관리
+ex - redux, recoil, mobx, zustand, jotai
+
+* server side rendering
+html을 서버에서 만들어서 보내줌
+
+* meta-framework
+자바스크립트(실은 리액트) 문법으로 풀스택 개발가능
+server side rendering 가능
+ex - next.js, nuxtjs, remix, SvelteKit
+
+* typescript 
+타입기능 업글된 자바스크립트 .ts 파일이기 때문에 번들링해줘야함
+var age : number = 20; 변수에 타입을 넣을 수 있음
+
+* serverless 
+서버 역할 대신 해주는 서비스
+회원인증, DB입출력, 기타 서버기능 알아서 해줌
+단점 : 종량제라 보통 비쌈
+ex - Firebase, supabase, AWS Lambda, PocketBase
