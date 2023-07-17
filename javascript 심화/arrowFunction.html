@@ -1,0 +1,33 @@
+<div></div>
+<button id="버튼">버튼</button>
+
+<script>
+    /*
+    함수를 쓰는 이유
+    1. 코드들을 기능으로 묶고 싶을 때 사용
+    2. 입출력 기계를 만들고 싶을 때 사용
+
+    Arrow function 장점
+    1. 입출력 기계 만들 때 보기쉬움
+    2. 파라미터가 1개면 소괄호 생략 가능 ex) a => {return a + 10}
+    3. 코드 한줄이면 중괄호도 생략 가능 ex) a => a + 10
+    */
+
+    //Arrow function 예시
+    //1. forEach 콜백함수
+    [1,2,3,4].forEach(a => console.log(a));
+
+    //2. 이벤트리스너
+    document.getElementById('버튼').addEventListener('click', (e) => {
+       
+    });
+    //함수 내의 this값을 변경시키지 않음, 바깥에 있던 this값을 내부에서 그대로 사용
+
+    //3. Object 안에 함수
+    var 오브젝트 = {
+        함수 : () => {
+            return this
+        }
+    }
+    오브젝트.함수();
+</script>

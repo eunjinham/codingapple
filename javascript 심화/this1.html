@@ -1,0 +1,54 @@
+<div></div>
+
+<script>
+    'use strict'; //strict mode 좀더 엄격하게
+
+    console.log(this); //window -> 기본 함수들 수납공간
+
+    function 함수() {
+        console.log(this);
+    }
+
+    함수(); //window strict 모드에서는 undefined
+
+    var 오브젝트 = {
+        data : 'Kim',
+        함수 : function() {
+            console.log(this);
+        }
+    }
+
+    오브젝트.함수(); //오브젝트 내 함수안에서 쓰면 그 함수를 가지고 있는 오브젝트를 뜻함
+    
+    var 오브젝트2 = {
+        data : {
+            함수 : function() {
+                console.log(this);
+            }
+        }
+    }
+
+    오브젝트2.data.함수();
+
+    var 오브젝트3 = {
+        data : {
+            함수 : () => {
+                console.log(this);
+            }
+        }
+    }
+
+    오브젝트3.data.함수(); //신문법 Arrow function : this 값을 함수 밖에 있던거 그대로 씀
+
+    var 오브젝트4 = {
+        data : {
+            함수() {
+                console.log(this);
+            }
+        }
+    }
+
+    오브젝트4.data.함수();
+
+    //함수나 변수를 전역공간에서 만들면 {window}에 보관
+</script>
