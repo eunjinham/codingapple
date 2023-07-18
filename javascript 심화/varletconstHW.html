@@ -1,0 +1,64 @@
+<div style="display : none">모달창0</div>
+<div style="display : none">모달창1</div>
+<div style="display : none">모달창2</div>
+
+<button>버튼0</button>
+<button>버튼1</button>
+<button>버튼2</button>
+
+<script>
+    //1번 문제
+    // 함수();
+    // function 함수() {
+    //     console.log(안녕);
+    //     let 안녕 = 'Hello!';
+    // } 
+
+    //해설 : var일 경우에는 undefined가 나왔겠지만 let이기 때문에 에러(const도 동일) 
+
+    //2번 문제
+    // 함수();
+    // var 함수 = function() {
+    //     console.log(안녕);
+    //     var 안녕 = 'Hello!';
+    // } 
+
+    //해설 : function 함수(){} 일 경우에는 전부 호이스팅이 됬겠지만 var 함수 = function(){}이기 때문에 선언부만 hosting됨
+    //       따라서 function이 정의되지 않아 함수가 아닌데요 에러
+
+    //3번 문제
+    // let a = 1;
+    // var 함수 = function() {
+    // a = 2;
+    // }
+    // console.log(a);
+
+    //해설 : 함수를 실행하지 않았기 때문에 a가 재할당되지 않음 따라서 a = 1
+
+    //4번 문제
+    let a = 1;
+    var b = 2;
+    window.a = 3;
+    window.b = 4;
+
+    console.log(a + b);
+
+    //해설 : a - 나랑 가장 가까운 범위를 사용하기 때문에 window보다 let이 더 가까워 1이 출력됨, b - var와 window는 동일하기 때문에 4가 됨(재할당처리)
+
+    //5번 문제
+    for (let i = 1; i < 6; i++) { 
+        setTimeout(function() { console.log(i); }, i*1000 ); 
+    }
+
+    //6번 문제
+    var 버튼들 = document.querySelectorAll('button');
+    var 모달창들 = document.querySelectorAll('div');
+
+    for (let i = 0; i < 3; i++){
+        버튼들[i].addEventListener('click', function(){
+        모달창들[i].style.display = 'block';
+        });
+    }
+
+    //5, 6번 해설 : var은 function이 범위이기 때문에 반복문이 실행되지 않는다. let으로 지정해야 {} 범위로 실행되기 때문에 반복문이 잘 실행된다.
+</script>

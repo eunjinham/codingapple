@@ -1,0 +1,47 @@
+<div></div>
+
+<script>
+    //선언, 할당, 범위, 호이스팅(변수의 선언을 변수 범위 맨위로 끌고오는 현상)
+
+    //재선언 : O, 재할당 : O, 범위 : function 안에서만
+    var 이름 = 'Kim';
+
+    //재선언 : x, 재할당 : O, 범위 : {} 안에서만
+    let 이름2 = 'Kim';
+
+    //재선언 : x, 재할당 : x, 범위 : {} 안에서만
+    const 사람 = {이름 : 'Kim'};
+    //하지만 오브젝트 내부 값은 변경해도 에러 안남
+    //'use strict' freeze 처리 시 에러는 나지 않음 하지만 strict mode 사용하면 에러 확인 가능
+    //Object.freeze(사람); 오브젝트도 변경 못하게 하려면 freeze 처리
+    
+    사람.이름 = 'Park';
+
+    //변수 동시에 여러개 만들기
+    var  나이 = 20, 이름 = '은진', 성별;
+
+    //전역변수 : 모든곳에서 쓸 수 있는 변수
+    var 나이 = 20;
+
+    function 함수() {
+        console.log(나이);
+        var 이름 = 'Kim'; //지역변수
+    }
+
+    함수();
+
+    //window로 전역변수 만들기
+    window.이름 = '김';
+    console.log(이름);
+
+    //연습문제
+    if(true) {
+        let a = 1;
+        let b = 2;
+        if(true) {
+            let b = 3;
+        }
+        console.log(b);
+    }
+
+</script>
