@@ -1,0 +1,31 @@
+<div></div>
+
+<script>
+    //backquote 1. 엔터키 가능 2. 중간중간 변수넣기 쉬움 
+    var 변수 = '손흥민'; 
+    var 문자 = '안녕하세요' + 변수 + '저는';
+
+    console.log(문자); //기존 방식
+
+    var back변수 = '손흥민';
+    var back문자 = `안녕하세요 저는 ${변수}`
+
+    console.log(back문자); //backquote
+
+    //tagged literals `문자`를 해체 분석할 수 있음, 글자의 순서를 변경하고 싶을때 사용 가능
+    function 해체분석기(문자들, 변수들,변수들2) {
+        console.log(문자들);
+        console.log(변수들);
+        console.log(변수들2);
+    }
+
+    해체분석기`안녕하세요 저는 ${변수}입니다 ${변수}`
+
+    //순서 변경 예시
+    function 해체분석기2(문자들, 변수들,변수들2) {
+        console.log(문자들[1] + 변수들 + 문자들[0]);
+    }
+
+    해체분석기2`안녕하세요 저는 ${변수}입니다`
+ 
+</script>
