@@ -1,0 +1,29 @@
+<script>
+    //Constructor이란
+    //- object 생성 기계
+    //- 보통 function과의 구분을 위해 네이밍을 대문자로 시작함
+
+    //var 사람 = {name : 'Kim', age : 15};
+
+    /*var 학생1 = {
+        name : 'Kim',
+        age : 15,
+        sayHi : function() {
+            console.log('안녕하세요 ' + this.name + '입니다');
+        }
+    }*/
+
+    function Student(이름) {
+        this.name = 이름,
+        this.age = 15,
+        this.sayHi = function() {
+            console.log('안녕하세요 ' + this.name + '입니다');
+        }
+    }
+
+    var 학생1 = new Student('Kim');
+    var 학생2 = new Student('Park');
+
+    학생1.sayHi();
+    학생2.sayHi();
+</script>
