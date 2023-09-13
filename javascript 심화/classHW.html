@@ -1,0 +1,64 @@
+<script>
+    //1. 직접 class 구조 만들어보기
+    class dog {
+        constructor(dogtype, dogcolor){
+            this.type = dogtype;
+            this.color = dogcolor;
+        }
+        한살먹기() {
+            if(this instanceof cat) { //생성자 확인은 instanceof
+                this.age++;
+            }
+        }
+    }
+
+    var 강아지1 = new dog('말티즈', 'white');
+    var 강아지2 = new dog('진돗개', 'brown');
+
+    //2. 이번엔 고양이관련 object들을 만들고 싶습니다. 
+    class cat extends dog {
+        constructor(dogtype, dogcolor,catage) {
+            super(dogtype, dogcolor);
+            this.age = catage;
+        }       
+    }
+
+    var 고양이1 = new cat('코숏', 'white', 5);
+    var 고양이2 = new cat('러시안블루', 'brown', 2);
+    
+    //3. 고양이와 강아지 object들에 기능을 하나 추가하고 싶습니다. 
+
+    //4. get/set을 이용해봅시다
+    class Unit {
+        constructor() {
+            this.공격력 = 5;
+            this.체력 = 100;
+        }
+        get battlePoint() {
+            return this.공격력 + this.체력;
+        }
+        set heal(healVal) {
+            this.체력 += healVal;
+        }
+    }
+
+    var game = new Unit();
+
+    //5. get/set을 이용해봅시다2 
+    var data = {
+        odd : [],
+        even : [],
+        filter : function(...num) {
+           num.forEach((a)=>{
+            if ( a % 2 == 1 ) {
+                this.odd.push(a)  //홀수일때
+            } else {
+                this.even.push(a)  //짝수일때
+            }
+           }); 
+        },
+        get numSort() {
+            return [...this.odd, ...this.even ].sort((a, b) => a - b);
+        }
+    }
+</script>

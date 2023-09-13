@@ -1,0 +1,24 @@
+<script>
+    //extends
+    class 할아버지 {
+        constructor(name){
+            this.성 = 'Kim';
+            this.이름 = name;
+        }
+        sayHi(){
+            console.log('Hi');
+        }
+    }
+
+    var 할아버지1 = new 할아버지('만덕');
+
+    class 아버지 extends 할아버지 {
+        constructor(name){
+            super(name);//extends 해서 만든 class는 this를 그냥 못씀. super 써야됨(물려받는 class의 constructor라는 뜻)
+            this.나이 = 50;
+        }
+    }
+
+    var 아버지1 = new 아버지('천덕');
+
+</script> 
