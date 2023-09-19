@@ -1,0 +1,43 @@
+<script>
+    //array 데이터를 전부 변수에 담으려면?
+    var arr = [2,3,4];
+
+    var [a,b,c] = [2,3,4]; //모양만 맞춰 변수를 선언하면 변수가 생성된다.
+
+    //array destructuring 할 때 몇개를 빼먹는다면 -등호로 기본값 지정 가능
+    var [d,e,f = 10] = [2,3];
+
+    //object 데이터의 경우 - 변수명을 Key명과 똑같이 써야함, 기본값 지정가능
+    var {myname,myage} = {myname : 'Kim', myage : 30};
+    var {name : 나이, age = 30} = {name : 'Park'};
+
+    //반대로 변수들을 object에 집어넣고 싶은 경우
+    var yourname = 'Kim';
+    var yourage = 30;
+
+    //var obj = {yourname : yourname, yourage : yourage};
+    var obj = {yourname, yourage}; //ES6부터는 아래껄로 축약 가능
+
+    //object 데이터들을 파라미터로 만들고 싶은 경우
+    function 함수({yourname, yourage}) {
+        console.log(yourname);
+        console.log(yourage);
+    }
+    
+    함수(obj);
+
+    //문제
+    let 신체정보 = {
+    body: {
+        height: 190,
+        weight: 70
+    },
+    size: ["상의 Large", "바지 30인치"],
+    };
+
+    let {body : {height,weight} ,
+         size : [상의, 하의]
+    } 
+    = 신체정보
+
+</script>
